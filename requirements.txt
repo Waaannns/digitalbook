@@ -5,3 +5,4 @@ pymysql
 Pillow
 Jinja2
 python-multipart
+itsdangerous
