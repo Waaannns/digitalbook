@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PERPUSTAKAAN DIGITAL</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', path='css/dashboard.css') }}"> -->
+    <style>
+        body{
+            /* background-color: rgb(217, 217, 217); */
+            /* background-color: rgb(48, 185, 243); */
+            margin: 0;
+        }
+        nav{
+            background: transparent;
+            display: flex;
+            position: absolute;
+            left: 50%;
+            top: 7%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            color: white;
+            width: 100%;
+        }
+        .navbar ul{
+            display: flex;
+            gap: 30px;
+            list-style-type: none;
+            width: 100%;
+            color: #fff;
+            align-items: center;
+        }
+        .navbar ul li a {
+            display: block;
+            padding: 5px 10px;
+            text-decoration: none;
+            color: rgb(253, 253, 253);
+        }
+
+        .navbar ul li a:hover {
+            background-color: #d2d3d3;
+            border-radius: 5px;
+            color: black;
+        }
+
+        .navbar ul .username{
+            justify-content: end;
+            display: flex;
+            margin-left: 58%;
+        }
+        a{
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+        }
+        .logo{
+            width: 125px;
+            margin-left: 30px;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(217, 217, 217);
+        }
+        .container1{
+            margin: 3% 0 3% 4%;
+            padding: 5px 0 0 20px ;
+            width: 20%;
+            height: 130px;
+            border-radius: 8px;
+            background-color: gb(217, 217, 217);
+            background-color: #9dbdd0;
+            display: block;
+        }
+        .imgdashboard img{
+            width: 20rem;
+            mix-blend-mode: multiply;
+        }
+        .containerdashboard{
+            position: absolute;
+            left: 50%;
+            top: 70%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            color: #dde9ef;
+            text-align: center;
+            height: 30vh;
+        }
+        .imgdashboard {
+            position: absolute;
+            left: 50%;
+            top: 37%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+        h2 {
+            margin: 0;
+        }
+        .container2 {
+            width: 70%;
+        }
+        .containerdashboard a{
+            position: absolute;
+            left: 50%;
+            top: 80%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+        p{
+            margin: 0px;
+        }
+        nav ul i{
+            display: flex;
+            position: absolute;
+            left: 95.5%;
+            top: 47%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+        .containerr{
+            margin: 30px 0 0 0;
+            display: flex;
+        }
+        footer{
+            background-color: black;
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        .dashboard{
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            z-index: 0;
+        }
+        .dashboard video{
+            width: 100%;
+            height: 86vh;
+        }
+        #bgVideo {
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+        }
+
+        .footer{
+            width: 40%;
+            display: flex;
+            justify-content: center;
+        }
+        .container-footer{
+            display: flex;
+            justify-content: space-around;
+        }
+        h3{
+            margin: 0;
+        }
+        .footer ul{
+            list-style-type: none;
+        }
+        .footer a{
+            color: #fff;
+        }
+        .footer a:hover{
+            color: rgb(204, 204, 204);
+        }
+        .footer .anggota{
+            margin: 0 0 12px 0 ;
+        }
+        .footer-img{
+            width: 60%;
+        }
+        .copyright {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            align-items: center;
+            padding-top: 2rem;
+        }
+        .transaksi, .container-transaksi{
+            margin: 0 2% 0 2%;
+        }
+        .transaksi{
+            text-align: center;
+        }
+        .container-transaksi{
+            padding: 2rem;
+            /* background-color: rgb(254, 254, 254); */
+            border-radius: 5px;
+            box-shadow: 0px 5px 15px rba(0, 0, 0, 0.25);
+            padding: 2rem;
+        }
+        .body-transaksi{
+            background-color: #dde9ef;
+            padding: 40px ;
+            text-align: center;
+        }
+        table, th, td{
+            border: 1px solid black;
+        }
+        table{
+            border-collapse: collapse;
+        }
+        table .t{
+            width: 36px;
+            text-align: center;
+        }
+        table .y{
+            width: 20rem;
+        }
+
+        thead{
+            background-color: rgb(243, 199, 24);
+        }
+        .card{
+            width: 22%;
+            display: flow;
+            background: #fff;
+            border-radius: 10px;
+            margin: 0 0 20px 0;
+            height: 20rem;
+        }
+
+        .card .user {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 35px 0 0 0;
+        }
+        .card p {
+            text-align: justify;        
+            height: 150px;
+            overflow-y: scroll;         
+            overflow-x: hidden;         
+            word-wrap: break-word;
+            white-space: pre-wrap;
+            padding: 10px;
+            box-sizing: border-box;
+            scrollbar-width: none;      
+            padding: 0 2rem 0 2rem;
+        }
+
+        .card p::-webkit-scrollbar {
+            display: none;
+        }
+
+
+        .card h5 {
+            text-align: center;
+            margin-bottom: 10px 0 0 0;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <nav class="navbar">
+        <img class="logo" src="{{ url_for('static', path='img/logo_detail.png') }}" alt="logo">
+        <ul>
+            <li><a href="/admin/dashboard">Dashboard</a></li>
+            <li><a href="/admin/laporan">Laporan-Transaksi</a></li>
+            <li><a href="/admin/login">LogOut</a></li>
+            <div class="username">
+                <p>{{ admin }}</p>
+            </div>
+        </ul>
+    </nav>
+
+    <video autoplay muted loop playsinline id="bgVideo">
+        <source src="{{ url_for('static', path='img/dashboard.mp4') }}" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+
+    <div class="imgdashboard">
+        <img src="{{ url_for('static', path='img/logoutama.png') }}" alt="">
+    </div>
+
+    <div class="containerdashboard">
+        <h1>Welcome To Website Admin</h1>
+        <p>Website Admin Ini Kami Sediakan Untuk Anda Agar Dapat Memanage Pendapatan Dari Web Site Yang Kami Sediakan Untuk User.</p>
+        <a href="#dimas" style="padding: 10px 20px; border-radius:5px; background-color: rgb(48, 185, 243);">Next</a>
+    </div>
+
+    <div class="body-transaksi">
+        <h1 class="transaksi">Data Transaksi</h1>
+        <div class="container-transaksi">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="t">No</th>
+                        <th class="t">No Seri</th>
+                        <th class="y">Nama Buku</th>
+                        <th class="y">Harga Buku</th>
+                        <th class="y">Tanggal</th>
+                        <th class="y">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in transaksi %}
+                    <tr>
+                        <td class="t">{{ loop.index }}</td>
+                        <td class="y">{{ item.id_buku }}</td>
+                        <td class="y">{{ item.nama_buku }}</td>
+                        <td class="y">Rp. {{ item.total }}</td>
+                        <td class="y">{{ item.tanggal }}</td>
+                        <td class="y">{{ item.status }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container-footer">
+            <div class="container-footer1">
+                <img class="footer-img" src="{{ url_for('static', path='img/foteer.png') }}" alt="">
+            </div>
+            <div class="footer">
+                <ul>
+                    <h3 class="anggota">Anggota Kelompok</h3>
+                    <li><a href="#">Elsanudin Balu</a></li>
+                    <li><a href="#">Moh. Angriawan Arief</a></li>
+                    <li><a href="#">Cindi Aprilia Puluhulawa</a></li>
+                </ul>
+            </div>
+            <div class="footer">
+                <ul>
+                    <h3>Contact : </h3>
+                    <li><i class="fa-solid fa-phone text-gray-300"></i> : 087856171827</li>
+                    <h3>Email : </h3>
+                    <li><i class="fa-solid fa-envelope text-gray-200"></i> : sekolavokasi@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="copyright">
+            <i class="fa-regular fa-copyright"></i>
+            <p>Readspace | By Kelompok 3 </p>
+        </div>
+    </footer>
+</body>
+</html>

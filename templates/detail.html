@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/img/favicon.ico">
+    <title>{{ books.title }}</title>
+    <link rel="stylesheet" href="/static/css/style_details.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-left">
+            <a href="/">
+                <img src="/static/img/logo_detail.png" alt="Logo" style="width: 150px;">
+            </a>
+        </div>
+    </header>
+
+    <div class="details">
+        <div class="card-image">
+            <div class="books-img">
+                <div class="img-overlay">
+                    {% if books.formats["image/jpeg"] %}
+                        <img src="{{ books.formats['image/jpeg'] }}" alt="Cover {{ books.title }}" class="card-img">
+                    {% else %}
+                        <img src="/static/img/no_cover.png" alt="No Cover" class="card-img">
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="info">
+            {% if books.title %}
+                <p class="books-title">{{ books.title }}</p>
+            {% else %}
+                <p class="books-title">No Title</p>
+            {% endif %}
+
+            {% for author in books.authors %}
+                {% if author.name %}
+                    <p class="book-author">{{ author.name }}</p>
+                {% else %}  
+                    <p class="book-author">No Author Name</p>
+                {% endif %}
+                
+                {% if author.birth_year and author.death_year %}
+                    <p class="book-years">{{ author.birth_year }} - {{ author.death_year }}</p>
+                {% else %}
+                    <p class="book-years">None - None</p>
+                {% endif %}
+            {% endfor %}
+
+            {% if books.summaries %}
+                <p class="book-desc">{{ books.summaries | join(', ') }}</p>
+            {% else %}
+                <p class="book-desc">No Summary</p>
+            {% endif %}
+
+            <div class="buttons">
+                <a class="button" href="/buy/{{ books.id }}">Buy IDR 30,000</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

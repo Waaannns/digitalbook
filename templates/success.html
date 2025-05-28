@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/img/favicon.ico">
+    <title>Pembayaran QRIS</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif;
+            background-image: url('/static/img/bg-pattern.png');
+            background-color: #3577f1;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .container {
+            padding: 1px 0 1px 30px;
+            max-width: 100%;
+            width: 80%;
+            margin: auto;
+            margin-top: 2rem;
+            background: #378ce7;
+            display: flex;
+            gap: 20px;
+        }
+
+        .center {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .details { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .details h2 { 
+            color: #333;
+        }
+
+        .qris {
+            margin-bottom: 20px;
+        }
+
+        .detail-pembayaran { 
+            background: rgb(249, 249, 249); 
+            padding: 1px 20px; 
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+
+        .detail-pembayaran h5 {
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .metode {
+            margin-top: 40px;
+        }
+
+        .metode h5 {
+            font-size: 15px;
+        }
+
+        .metode input {
+            display: block;
+            width: 94%;
+            padding: 0.5rem 0.9rem;
+            font-size: 0.8125rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            background-clip: padding-box;
+            border-radius: 6px;
+        }
+
+        .fomdisabel {
+            background-color: #eff2f7;
+            opacity: 1;
+        }
+
+        .scan-qr {
+            color: #8c8c8c;
+            text-align: center;
+            margin-top: 0px;
+        }
+
+        .text h1, .text h5 {
+            color: white;
+        }
+
+        .text h1 {
+            margin-bottom: 0px;
+        }
+
+        .text h5 {
+            margin-top: 5px;
+        }
+
+        .invoice {
+            background: white;
+            max-width: 100%;
+            width: 55%;
+        }
+
+        /* .detail-pembayaran-danger { 
+            background: rgb(249, 249, 249);  */
+            /* padding: 1px 20px; 
+            border-radius: 8px; */
+            /* text-align: center; */
+            /* margin-bottom: 20px; */
+            /* margin-top: 30px; */
+        /* } */
+
+        .detail-pembayaran-danger p {
+            color: #878a99 !important;
+            font-size: 11px;
+            font-weight: bold;
+            margin: 0;
+            margin-bottom: 8px;
+        }
+
+        .detail-pembayaran-danger h5 {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .detail-pembayaran-danger-center {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+
+        .nota {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 50px;
+        }
+
+        .nota p {
+            color: #878a99 !important;
+            font-size: 11px;
+            font-weight: bold;
+            margin: 0;
+            margin-bottom: 8px;
+        }
+
+        .nota h5 {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .subtotal {
+            display: grid;
+            margin-top: 29px;
+            justify-content: flex-end;
+            /* margin-right: 5px; */
+        }
+
+        .opp {
+            display: flex;
+            gap: 85px;
+        }
+
+        .detail-opp p {
+            color: #878a99 !important;
+            font-size: 12px;
+            font-weight: bold;
+            margin: 0;
+            margin-bottom: 8px;
+        }
+
+        .fee {
+            display: flex;
+            gap: 85px;
+            margin-right: 64px;
+        }
+
+        .detail-fee p {
+            color: #878a99 !important;
+            font-size: 12px;
+            font-weight: bold;
+            margin: 0;
+            margin-bottom: 8px;
+        }
+
+        .total {
+            display: grid;
+            margin-top: 20px;
+            justify-content: flex-end;
+        }
+
+        .detail-total {
+            display: flex;
+            gap: 42px;
+            margin-right: 44px;
+            font-size: 18px;
+        }
+
+        .detail-pembayaran img { 
+            width: 200px; 
+            padding: 20px 142px;
+        }
+
+        .logo-name {
+            display: grid;
+            justify-items: center;
+        }
+
+        .logo_invoice img { 
+            width: 200px; 
+            margin-top: 70px;
+        }
+
+        .nama-toko p {
+            margin: 0;
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .callback {
+            display: flex;
+            margin-top: 30px;
+            /* padding: 0 50px; */
+            justify-content: center;
+            gap: 85px;
+        }
+
+        .button {
+            color: white;
+            font-size: 11px;
+            text-decoration: none;
+            padding: 10px 50px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+        }
+
+        .buttons {
+            border-radius: 8px;
+            background: black;
+            /* padding: 0 50px; */
+        }
+
+        .button:hover {
+            background-color: #d0d0d0;
+        }
+
+        .secure {
+            font-weight: bold;
+            font-size: 15px;
+            font-family: serif;
+            margin-top: 35px;
+        }
+
+        .secure p {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .secure img {
+            width: 60px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+                width: 95%;
+                padding: 10px;
+            }
+
+            .center {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .invoice {
+                width: 100%;
+                margin-top: 30px;
+            }
+
+            .detail-pembayaran img {
+                padding: 10px;
+                width: 100%;
+                margin: 0px 80px;
+                max-width: 250px;
+            }
+
+            .buttons {
+                width: 100%;
+                text-align: center;
+            }
+
+            .secure {
+                font-size: 13px;
+                text-align: center;
+                margin-top: 60px;
+            }
+
+            .secure img {
+                width: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="qris">
+            <div class="text">
+                <h1>Tagihan kamu dibayar.</h1>
+                <h5>Pembayaran kamu dengan ID Tagihan {{ books.id }} dalam status Success</h4>
+            </div>
+            <div class="detail-pembayaran">
+                <h5>Detail Pembayaran</h5>
+                <div class="metode">
+                    <h5>Metode Pembayaran</h5>
+                    <input value="QRIS" class="fomdisabel" disabled>
+                </div>
+                <div class="metode">
+                    <h5>Jumlah Bayar</h5>
+                    <input value="Rp. {{ harga }}" class="fomdisabel" disabled>
+                </div>
+
+                <img src="/static/img/Success.png" alt="Success">
+                <h6 class="scan-qr">*Pembayaran Berhasil</h6>
+            </div>
+        </div>
+        <div class="invoice">
+            <div class="logo-name">
+                <div class="logo_invoice">
+                    <img src="/static/img/logo_utama.png" alt="Logo-Invoice">
+                </div>
+                <div class="nama-toko">
+                    <p>PT READSPACE DIGITAL</p>
+                </div>
+            </div>
+            <div class="detail-pembayaran-danger-center">
+                <div class="detail-pembayaran-danger">
+                    <p>NOMOR TAGIHAN</p>
+                    <h5>#TRX{{ books.id }}</h5>
+                </div>
+                <div class="detail-pembayaran-danger">
+                    <p>TGL. DIBUAT</p>
+                    <h5>{{ tanggal }}</h5>
+                </div>
+                <div class="detail-pembayaran-danger">
+                    <p>STATUS PEMBAYARAN</p>
+                    <h5>Success</h5>
+                </div>
+            </div>
+            <div class="nota">
+                <div class="detail-nota">
+                    <p>#</p>
+                    <h5>01</h5>
+                </div>
+                <div class="detail-nota">
+                    <p>Item</p>
+                    <h5>Books</h5>
+                </div>
+                <div class="detail-nota">
+                    <p>Quantity</p>
+                    <h5>1x</h5>
+                </div>
+                <div class="detail-nota">
+                    <p>Harga</p>
+                    <h5>Rp. {{ harga }}</h5>
+                </div>
+            </div>
+            <div class="subtotal">
+                <div class="fee">
+                    <div class="detail-fee">
+                        <p>Fee 0.7%</p>
+                    </div>
+                    <div class="detail-fee">
+                        <p>Rp. {{ pajak }}</p>
+                    </div>
+                </div>
+                <div class="opp">
+                    <div class="detail-opp">
+                        <p>Sub total</p>
+                    </div>
+                    <div class="detail-opp">
+                        <p>Rp. {{ total_bayar }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="total">
+                <div class="detail-total">
+                    <h5>Total DIbayar</h5>
+                    <h5>Rp. {{ total_bayar }}</h5>
+                </div>
+            </div>
+            <div class="callback">
+                <div class="buttons">
+                    <a class="button" href="/read/{{ books.id }}" target="_blank">Read Book</a>
+                </div>
+                <div class="buttons">
+                    {% if books.formats["application/octet-stream"] %}
+                    <a class="button" href="{{ books.formats['application/octet-stream'] }}" target="_blank">Download Book</a>
+                    {% else %}
+                    <a class="button" href="/404">Unduh Buku</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="secure">
+                <p>Secure payment by <img src="/static/img/logo_utama.png"></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

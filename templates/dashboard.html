@@ -1,0 +1,49 @@
+<!-- {% extends "dashboard_admin.html" %}
+{% block content %} -->
+<video autoplay muted loop playsinline id="bgVideo">
+    <source src="{{ url_for('static', path='img/dashboard.mp4') }}" type="video/mp4">
+    Your browser does not support HTML5 video.
+</video>
+
+<div class="imgdashboard">
+    <img src="{{ url_for('static', path='img/logoutama.png') }}" alt="">
+</div>
+
+<div class="containerdashboard">
+    <h1>Welcome To Website Admin</h1>
+    <p>Website Admin Ini Kami Sediakan Untuk Anda Agar Dapat Memanage Pendapatan Dari Web Site Yang Kami Sediakan Untuk User.</p>
+    <a href="#dimas" style="padding: 10px 20px; border-radius:5px; background-color: rgb(48, 185, 243);">Next</a>
+</div>
+
+<div class="container" id="dimas">
+    <div class="container1">
+        <div class="containerr">
+            <div class="container2">
+                <p>JUMLAH BUKU</p> 
+                <h2>{{ jumlah_buku }}</h2>
+            </div>
+            <i class="fas fa-book fa-2x text-gray-300"></i>
+        </div>
+    </div>
+
+    <div class="container1">
+        <div class="containerr">
+            <div class="container2">
+                <p>BUKU TERJUAL</p> 
+                <h2>{{ jumlah_transaksi }}</h2>
+            </div>
+            <i class="fas fa-cart-shopping fa-2x text-gray-300"></i>
+        </div>
+    </div>
+
+    <div class="container1">
+        <div class="containerr">
+            <div class="container2">
+                <p>Total Pendapatan</p> 
+                <h2>Rp. {{ total_pendapatan }}</h2>
+            </div>
+            <i class="fa-solid fa-2x fa-money-bill"></i>
+        </div>
+    </div>
+</div>
+<!-- {% endblock %} -->

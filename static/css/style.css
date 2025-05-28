@@ -1,0 +1,375 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(#789dff, white, #789dff);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    padding: 20px;
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination a, .pagination span {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 0 2px;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.pagination a:hover {
+    background-color: #f4f4f4;
+}
+
+.pagination .current {
+    background-color: #4070F4;
+    color: white;
+    font-weight: bold;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background: white;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.topbar-center {
+    display: flex;
+    align-items: center;
+}
+
+.search-book {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+h1 { 
+    color: #2c3e50; 
+}
+
+.book { 
+    background: white; 
+    padding: 15px; 
+    margin-bottom: 10px; 
+    border-radius: 5px; 
+}
+
+.book-title { 
+    font-size: 18px; 
+    font-weight: bold; 
+    text-align: center;
+}
+
+.book-author { 
+    color: gray; 
+    font-style: italic;
+    text-align: center; 
+}
+
+.book-desc { 
+    margin: 14px;
+    text-align: center; 
+}
+
+.slide-container {
+    max-width: 100%;
+    width: 90%;
+    padding: 40px 0;
+}
+
+.slide-content {
+    margin: 0 40px;
+    overflow: hidden;
+    border-radius: 25px;
+}
+
+.card {
+    border-radius: 25px;
+    background-color: #FFF;
+}
+
+.image-content, .card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 14px;
+}
+
+.image-content {
+    position: relative;
+    row-gap: 5px;
+    padding: 25px 0;
+}
+
+.overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: url('/static/img/bg_utama.webp') no-repeat center center / cover;
+    border-radius: 25px;
+}
+
+.overlay::before,
+.overlay::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -40px;
+    height: 40px;
+    width: 40px;
+    background-color: #FFF;
+}
+
+.overlay::after {
+    border-radius: 0 25px 0 0;
+    background-color: #FFF;
+}
+
+.card-image {
+    position: relative;
+    width: 130px;
+    background: #FFF;
+    padding: 3px;
+}
+
+.card-image .card-img {
+    width: 100%;
+    height: 200px;
+    border: 4px solid #4070F4;
+}
+
+.button {
+    border: none;
+    font-size: 16px;
+    color: #FFF;
+    padding: 8px 16px;
+    background-color: #4070F4;
+    border-radius: 6px;
+    margin: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.button:hover {
+    background: #265DF2;
+}
+
+.swiper-navBtn {
+    color: #6E93f7;
+    transition: color 0.3s ease;
+}
+
+.swiper-navBtn:hover {
+    color: #4070F4;
+}
+
+.swiper-navBtn::before,
+.swiper-navBtn::after {
+    font-size: 35px;
+}
+
+.swiper-button-next {
+    right: 0;
+}
+
+.swiper-button-prev {
+    left: 0;
+}
+
+.swiper-pagination-bullet {
+    background-color: #6E93f7;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #4070F4;
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    padding: 40px 280px;
+    max-width: 100%;
+    margin: auto;
+}
+
+.book-card {
+    background: #ffffffcc;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+}
+
+.book-img {
+    position: relative;
+    background: #FFF;
+    padding: 3px;
+}
+
+.book-img img {
+    width: 100%;
+    height: 200px;
+    border: 4px solid #4070F4;
+}
+
+.book-content {
+    display: grid;
+    justify-items: center;
+}
+
+.book-content h3 {
+    font-size: 16px;
+    margin: 10px 0 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.book-content p {
+    font-size: 14px;
+    color: #444;
+    min-height: 40px;
+    font-style: italic;
+}
+
+footer {
+    padding: 2rem 0;
+    font-family: "Poppins", sans-serif;
+    background: white;
+    margin-top: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+footer h2 {
+    color: #004aad;
+    font-weight: 700;
+    font-size: 32px;
+    margin-bottom: 1.5rem !important;
+}
+
+.list-unstyled {
+    margin-bottom: 1.5rem!important;
+}
+
+footer nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+}
+
+.social-mb {
+    margin-bottom: 2rem!important;
+}
+
+.social-icons i {
+    font-size: 30px;
+    padding: 0 20px;
+}
+
+.copyright {
+    color: #999;
+    font-size: 14px;
+}
+
+/* ===================================
+   Responsive CSS untuk perangkat kecil
+   =================================== */
+
+@media screen and (max-width: 768px) {
+    .topbar {
+        flex-direction: column;
+        padding: 10px;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .topbar-center form input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .book-grid {
+        padding: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+
+    .slide-content {
+        margin: 0 10px;
+    }
+
+    .card-image {
+        width: 100px;
+    }
+
+    .card-image .card-img {
+        height: 150px;
+    }
+
+    .book-img img {
+        height: 150px;
+    }
+
+    .book-content h3 {
+        -webkit-line-clamp: 2;
+        font-size: 14px;
+    }
+
+    footer h2 {
+        font-size: 24px;
+    }
+
+    .social-icons i {
+        font-size: 24px;
+        padding: 0 10px;
+    }
+}

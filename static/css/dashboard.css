@@ -1,0 +1,253 @@
+body{
+    /* background-color: rgb(217, 217, 217); */
+    background-color: rgb(48, 185, 243);
+}
+nav{
+    background: transparent;
+    display: flex;
+    position: absolute;
+    left: 50%;
+    top: 7%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    color: white;
+    width: 100%;
+}
+.navbar ul{
+    margin: 35px 0 0 0;
+    display: flex;
+    gap: 25px;  
+    list-style-type: none;
+    width: 100%;
+    color: #fff;
+}
+.navbar ul li a {
+    display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: rgb(253, 253, 253);
+}
+
+.navbar ul li a:hover {
+    background-color: #d2d3d3;
+    border-radius: 5px;
+    color: black;
+}
+
+.navbar ul .username{
+    justify-content: end;
+    display: flex;
+    margin-left: 58%;
+}
+a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+.logo{
+    width: 100px;
+    margin-left: 30px;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(217, 217, 217);
+}
+.container1{
+    margin: 3% 0 3% 4%;
+    padding: 5px 0 0 20px ;
+    width: 20%;
+    height: 130px;
+    border-radius: 8px;
+    background-color: gb(217, 217, 217);
+    background-color: #9dbdd0;
+    display: block;
+}
+.imgdashboard img{
+    width: 30rem;
+    mix-blend-mode: multiply;
+}
+.containerdashboard{
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    color: #dde9ef;
+    text-align: center;
+    height: 30vh;
+}
+.imgdashboard {
+    position: absolute;
+    left: 50%;
+    top: 37%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+h2 {
+    margin: 0;
+}
+.container2 {
+    width: 70%;
+}
+.containerdashboard a{
+    position: absolute;
+    left: 50%;
+    top: 80%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+p{
+    margin: 0px;
+}
+.copyright i {
+    margin-top: 10px;
+}
+nav ul i{
+    display: flex;
+    position: absolute;
+    left: 95.5%;
+    top: 47%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+.containerr{
+    margin: 30px 0 0 0;
+    display: flex;
+}
+footer{
+    width: 100%;
+    background-color: black;
+    color: #fff;
+}
+.dashboard{
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 0;
+}
+.dashboard video{
+    width: 100%;
+    height: 86vh;
+}
+#bgVideo {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.footer{
+    margin: 30px 0 0 0 ;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+.container-footer{
+    display: flex;
+    justify-content: space-around;
+
+}
+h3{
+    margin: 0;
+}
+.footer ul{
+    list-style-type: none;
+}
+.footer a{
+    color: #fff;
+}
+.footer a:hover{
+    color: rgb(204, 204, 204);
+}
+.footer .anggota{
+    margin: 0 0 12px 0 ;
+}
+.footer-img{
+    width: 50%;
+}
+.container-footer1{
+    margin: 0 0 0 40px;
+}
+.container-footer1 h2{
+    font-size: 25px;
+}
+.copyright {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: 2px 0 0 0;
+    gap: 5px;
+}
+.copyright p{
+    margin-top: 5px;
+}
+.transaksi, .container-transaksi{
+    margin: 0 2% 0 2%;
+}
+.transaksi{
+    margin-top: 6%;
+}
+.container-transaksi{
+    padding: 2rem;
+    background-color: rgb(254, 254, 254);
+    border-radius: 5px;
+    box-shadow: 0px 5px 15px rba(0, 0, 0, 0.25);
+    padding: 2rem;
+}
+.body-transaksi{
+    background-color: #dde9ef;
+    padding: 0 0 50px ;
+}
+table, th, td{
+    border: 1px solid black;
+}
+table{
+    border-collapse: collapse;
+}
+table .t{
+    width: 36px;
+    text-align: center;
+}
+table .y{
+    width: 20rem;
+}
+
+thead{
+    background-color: rgb(243, 199, 24);
+}
+.card{
+    width: 22%;
+    display: flow;
+    background: #fff;
+    border-radius: 10px;
+    margin: 0 0 20px 0;
+    height: 20rem;
+}
+
+.card .user {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 35px 0 0 0;
+}
+.card p {
+    text-align: justify;        
+    height: 150px;
+    overflow-y: scroll;         
+    overflow-x: hidden;         
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    padding: 10px;
+    box-sizing: border-box;
+    scrollbar-width: none;      
+    padding: 0 2rem 0 2rem;
+}
+
+.card p::-webkit-scrollbar {
+    display: none;
+}
+
+
+.card h5 {
+    text-align: center;
+    margin-bottom: 10px 0 0 0;
+}

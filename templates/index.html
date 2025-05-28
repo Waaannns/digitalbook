@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Space - Premium Library</title>
+    <link rel="icon" type="image/x-icon" href="/static/img/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-left">
+            <a href="/">
+                <img src="/static/img/logo_utama.png" alt="Logo" style="width: 150px;">
+            </a>
+        </div>
+        <div class="topbar-center">
+            <form method="get" action="/">
+                <input type="text" name="search" placeholder="Search Book..." value="" style="padding: 10px 60px;border-radius: 10px;text-align: center">
+            </form>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="slide-container swiper">
+            <div class="slide-content">
+                <div class="card-wrapper swiper-wrapper">
+                    {% for book in books %}
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+                            <div class="card-image">
+                                {% if book.formats["image/jpeg"] %}
+                                    <img src="{{ book.formats['image/jpeg'] }}" alt="Cover {{ book.title }}" class="card-img">
+                                {% else %}
+                                    <img src="/static/img/no_cover.png" alt="No Cover" class="card-img">
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            {% if book.title %}
+                                <h2 class="book-title">{{ book.title }}</h2>
+                            {% else %}
+                                <h2 class="book-title">No Title</h2>
+                            {% endif %}
+
+                            <p class="book-author">
+                                {% for author in book.authors %}
+                                    {% if author.name %}
+                                        {{ author.name }}
+                                    {% else %}  
+                                        No Author Name
+                                    {% endif %}
+                                {% endfor %}
+                            </p>
+                            <a class="button" href="/details/{{ book.id }}" target="_blank">View Book</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="book-grid">
+            {% for book in books %}
+            <div class="book-card">
+                <div class="book-img">
+                    {% if book.formats["image/jpeg"] %}
+                        <img src="{{ book.formats['image/jpeg'] }}" alt="Cover {{ book.title }}" class="card-img">
+                    {% else %}
+                        <img src="/static/img/no_cover.png" alt="No Cover" class="card-img">
+                    {% endif %}
+                </div>
+
+                <div class="book-content">
+                    {% if book.title %}
+                        <h3>{{ book.title }}</h3>
+                    {% else %}
+                        <h3>No Title</h3>
+                    {% endif %}
+
+                    <p>
+                    {% for author in book.authors %}
+                        {% if author.name %}
+                            {{ author.name }}
+                        {% else %}  
+                            No Author Name
+                        {% endif %}
+                    {% endfor %}
+                    </p>
+                    <a href="/details/{{ book.id }}" class="button" target="_blank">View Book</a>
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+
+        <div class="pagination">
+            {% if page > 1 %}
+            <a href="/?page={{ page - 1 }}{% if search %}&search={{ search }}{% endif %}">Previous</a>
+            {% endif %}
+
+            {% for p in range(1, total_pages + 1) %}
+            {% if p == page %}
+                <span class="current">{{ p }}</span>
+            {% elif p <= 5 or (p > page-2 and p < page+2) or p > total_pages-2 %}
+                <a href="/?page={{ p }}{% if search %}&search={{ search }}{% endif %}">{{ p }}</a>
+            {% elif p == 6 and page > 5 %}
+                ...
+            {% endif %}
+            {% endfor %}
+
+            {% if page < total_pages %}
+            <a href="/?page={{ page + 1 }}{% if search %}&search={{ search }}{% endif %}">Next</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <footer>
+        <img src="/static/img/footer.png" alt="No Cover" class="card-img" style="margin-bottom: 1.5rem !important; width: 250px;">
+        <nav class="list-unstyled">
+            <a href="/">Home</a>
+            <a href="#">About</a>
+            <a href="#">FAQ</a>
+            <a href="#">Contact</a>
+        </nav>
+        <img src="/static/img/qris.png" alt="No Cover" class="card-img" style="margin-bottom: 1rem !important; width: 50px;">
+        <p class="copyright">© Readspace. All Rights Reserved.</p>
+    </footer>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="/static/js/script.js"></script>
+</html>

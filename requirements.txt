@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+httpx
+pymysql
+Pillow
+Jinja2
+python-multipart

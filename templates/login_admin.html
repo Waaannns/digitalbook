@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PERPUSTAKAAN DIGITAL</title>
+    <!-- <link rel="stylesheet" href="css/index.css"> -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container1{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url(/static/img/fotoperpus.jpg);
+            background-size: cover;
+            background-position: bottom;
+        }
+        .container2{
+            width: 23%;
+            height: 50vh;
+            border: 2px solid;
+            border-radius: 10px;
+            padding: 0px 0.7% 5px 0.5%;
+            background-color: rgba(255, 255, 255, 0,5);
+            backdrop-filter: blur(30px);
+        }
+        p{
+            margin: 0px;
+        }
+        form{
+            margin: 8% 0 0 0;
+        }
+        input {
+            margin: 10px 0;
+            width: 97%;
+            height: 35px;
+            border: none;
+            border-radius: 20px;
+            padding: 0 3px 3px 7px;
+        }
+        .button{
+            margin: 28% 0 0 0;
+            display: flex;
+            justify-content: center;
+        }
+        
+        button:hover {
+            background-color: rgb(217, 217, 217);
+        }
+
+        button{
+            cursor: pointer;
+            width: 40%;
+            height: 40px;
+            border-radius: 20px;
+        }
+        .login{
+            width: 97%;
+            display: flex;
+            justify-content: center;
+            height: 40px;
+        }
+        p{
+            width: 45%;
+            color: white;
+            justify-content: center;
+            display: flex;
+            font-size: 22px;
+            border-radius: 0 0 10px 10px;
+            background-color: black;
+        }
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    <div class="container1">
+        <div class="container2">
+            <label class="login"for=""><p>Login</p></label>
+            
+            {% if message %}
+                <script>alert("{{ message }}");</script>
+            {% endif %}
+
+            <form method="post">
+                <label for="">Email</label><br>
+                <input type="Email" name="email" placeholder="Email"><br>
+                <label for="">password</label><br>
+                <input type="password" name="password" placeholder="Password"><br>
+                <div class="button">
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
