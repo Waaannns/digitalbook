@@ -43,14 +43,14 @@ PRIVATE_MERCHANT = "OK1559465"
     # })
 
 # Koneksi ke database MySQL
-def get_db_connection():
-    return pymysql.connect(
-        host="localhost",
-        user="root",
-        password="",
-        database="buku",
-        cursorclass=pymysql.cursors.DictCursor
-    )
+# def get_db_connection():
+#     return pymysql.connect(
+#         host="localhost",
+#         user="root",
+#         password="",
+#         database="buku",
+#         cursorclass=pymysql.cursors.DictCursor
+#     )
 
 def format_idr(value: int):
     return f"{value:,.0f}".replace(",", ".")
@@ -249,64 +249,64 @@ async def success(request: Request, book_id: int):
         request.session.pop("total_bayar", None)
 
 
-fake_admin_db = {
-    "admin@gmail.com": {
-        "password": "123",
-        "name": "Admin Perpustakaan"
-    }
-}
+# fake_admin_db = {
+#     "admin@gmail.com": {
+#         "password": "123",
+#         "name": "Admin Perpustakaan"
+#     }
+# }
 
-# Login page
-@app.get("/admin/login")
-def admin_login(request: Request):
-    return templates.TemplateResponse("login_admin.html", {"request": request})
+# # Login page
+# @app.get("/admin/login")
+# def admin_login(request: Request):
+#     return templates.TemplateResponse("login_admin.html", {"request": request})
 
-# Login action
-@app.post("/admin/login")
-def login_action(request: Request, email: str = Form(...), password: str = Form(...)):
-    user = fake_admin_db.get(email)
-    if user and user["password"] == password:
-        # request.session["admin_session"] = "valid"
-        return RedirectResponse(url="/admin/dashboard", status_code=status.HTTP_302_FOUND)
-    return templates.TemplateResponse("login_admin.html", {"request": request, "message": "Email atau password salah"})
+# # Login action
+# @app.post("/admin/login")
+# def login_action(request: Request, email: str = Form(...), password: str = Form(...)):
+#     user = fake_admin_db.get(email)
+#     if user and user["password"] == password:
+#         # request.session["admin_session"] = "valid"
+#         return RedirectResponse(url="/admin/dashboard", status_code=status.HTTP_302_FOUND)
+#     return templates.TemplateResponse("login_admin.html", {"request": request, "message": "Email atau password salah"})
 
-@app.get("/admin/dashboard", response_class=HTMLResponse)
-async def dashboard(request: Request):
-    async with httpx.AsyncClient() as client:
-        response = await client.get(GUTENDEX_API)
-        if response.status_code == 200:
-            data = response.json()
-            jumlah_buku = data.get("count", 0)
-            connection = get_db_connection()
-            with connection.cursor() as cursor:
+# @app.get("/admin/dashboard", response_class=HTMLResponse)
+# async def dashboard(request: Request):
+#     async with httpx.AsyncClient() as client:
+#         response = await client.get(GUTENDEX_API)
+#         if response.status_code == 200:
+#             data = response.json()
+#             jumlah_buku = data.get("count", 0)
+#             connection = get_db_connection()
+#             with connection.cursor() as cursor:
 
-                cursor.execute("SELECT COUNT(*) as total FROM tb_transaksi")
-                jumlah_transaksi = cursor.fetchone()["total"]
+#                 cursor.execute("SELECT COUNT(*) as total FROM tb_transaksi")
+#                 jumlah_transaksi = cursor.fetchone()["total"]
 
-                cursor.execute("SELECT SUM(total) as total FROM tb_transaksi")
-                total_pendapatan = cursor.fetchone()["total"] or 0
+#                 cursor.execute("SELECT SUM(total) as total FROM tb_transaksi")
+#                 total_pendapatan = cursor.fetchone()["total"] or 0
 
-            connection.close()
+#             connection.close()
 
-            return templates.TemplateResponse("dashboard_admin.html", {
-                "request": request,
-                "jumlah_buku": jumlah_buku,
-                "jumlah_transaksi": jumlah_transaksi,
-                "total_pendapatan": format_idr(total_pendapatan),
-                "admin": "Admin Perpustakaan"
-            })
-        else:
-            return templates.TemplateResponse("login_admin.html", {"request": request, "message": "Email atau password salah"})
+#             return templates.TemplateResponse("dashboard_admin.html", {
+#                 "request": request,
+#                 "jumlah_buku": jumlah_buku,
+#                 "jumlah_transaksi": jumlah_transaksi,
+#                 "total_pendapatan": format_idr(total_pendapatan),
+#                 "admin": "Admin Perpustakaan"
+#             })
+#         else:
+#             return templates.TemplateResponse("login_admin.html", {"request": request, "message": "Email atau password salah"})
         
-@app.get("/admin/laporan")
-def laporan_transaksi(request: Request):
-    connection = get_db_connection()
-    with connection.cursor() as cursor:
-        cursor.execute("SELECT id_buku, total, tanggal, status, nama_buku FROM tb_transaksi")
-        transaksi = cursor.fetchall()
-    connection.close()
+# @app.get("/admin/laporan")
+# def laporan_transaksi(request: Request):
+#     connection = get_db_connection()
+#     with connection.cursor() as cursor:
+#         cursor.execute("SELECT id_buku, total, tanggal, status, nama_buku FROM tb_transaksi")
+#         transaksi = cursor.fetchall()
+#     connection.close()
 
-    return templates.TemplateResponse("laporantransaksi.html", {
-        "request": request,
-        "transaksi": transaksi
-    })
+#     return templates.TemplateResponse("laporantransaksi.html", {
+#         "request": request,
+#         "transaksi": transaksi
+#     })
