@@ -140,7 +140,7 @@ async def show_payment(request: Request, book_id: int):
             books = response.json()
             # Data contoh (bisa kamu ambil dari DB nanti)
             jumlah = 1
-            harga = 1
+            harga = 30000
             pajak_persen = 0.7
             pajak = int(harga * pajak_persen / 100)
             total_bayar = harga + pajak
